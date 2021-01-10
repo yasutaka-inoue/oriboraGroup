@@ -159,7 +159,7 @@ const handleSubmit=()=>{
                 />
           </FormControl>
           </div>
-              <Button variant="contained" color="primary" className={classes.button} type="submit">登録</Button>
+              <Button variant="contained" color="primary" type="submit">登録</Button>
               </form>        
         </div>
 
@@ -193,3 +193,4 @@ const handleSubmit=()=>{
 }
 
 export default withRouter(Register)
+
