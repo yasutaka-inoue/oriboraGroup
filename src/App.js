@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { withRouter } from 'react-router-dom';
 import Title from './common/Title'
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Button, FormControl, TextField} from '@material-ui/core';
+import { Button, FormControl, TextField} from '@material-ui/core';
 
 // ログイン時に取得したidを連れまわす
     // 仮id
@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     width: 65,
     margin: "0 auto",
     marginTop: 20,
+    textDecoration: "underline",
+    cursor: "pointer",
   },
 }));
 
@@ -59,6 +61,15 @@ const App = (props) => {
             state: {myId: volunteerId}
         })
     }
+
+    // 登録へ遷移
+    const gotoRegister=()=>{
+        props.history.push({
+            //vulnteerに遷移。値を渡す。
+            pathname: '/register',
+        })
+    }
+
 
     //登録処理
     const handleSubmit=(e)=>{
@@ -108,9 +119,10 @@ const App = (props) => {
         <Button variant="contained" color="secondary" size="large" onClick={gotoGuest} className={classes.button}>
           ゲスト
         </Button>
-        <a href="/register" className={classes.link}>新規登録</a>
+        <p className={classes.link} onClick={gotoRegister}>新規登録</p>
     </>
   );
 };
 
 export default withRouter(App);
+
